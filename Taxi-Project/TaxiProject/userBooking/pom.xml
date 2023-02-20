@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.sanmedia.twozo</groupId>
+        <artifactId>Taxi-Project</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>userBooking</artifactId>
+    <packaging>bundle</packaging>
+
+    <name>userBooking Bundle</name>
+    <description>
+        userBooking OSGi bundle project.
+    </description>
+
+    <properties>
+        <maven-bundle-plugin.version>5.1.8</maven-bundle-plugin.version>
+        <osgi.version>8.0.0</osgi.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.sanmedia.twozo</groupId>
+            <artifactId>dbConnection</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sanmedia.twozo</groupId>
+            <artifactId>validation</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sanmedia.twozo</groupId>
+            <artifactId>genericDAO</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sanmedia.twozo</groupId>
+            <artifactId>exceptions</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>${maven-bundle-plugin.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Prerequisite-Bundles>com.sanmedia.twozo.dbConnection</Prerequisite-Bundles>
+                        <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+                        <Bundle-Version>${project.version}</Bundle-Version>
+                        <Bundle-Activator>com.sanmedia.twozo.user.view.WelcomePage</Bundle-Activator>
+                        <Export-Package>
+                            com.sanmedia.twozo*;version=${project.version}
+                        </Export-Package>
+                        <Import-Package>
+                            java.sql.*;
+                            org.osgi.framework.*;
+                            com.sanmedia.twozo.dbConnection.*;
+                            com.sanmedia.twozo.exceptions.*;
+                            com.sanmedia.twozo.genericDAO.*;
+                            com.sanmedia.twozo.validation*;
+                        </Import-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

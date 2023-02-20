@@ -1,0 +1,5 @@
+local:com.sanmedia.twozo:userBooking:jar:1.0-SNAPSHOT (compile)
+ local:com.sanmedia.twozo:dbConnection:jar:1.0-SNAPSHOT (compile)
+ local:com.sanmedia.twozo:validation:jar:1.0-SNAPSHOT (compile)
+ local:com.sanmedia.twozo:genericDAO:jar:1.0-SNAPSHOT (compile)
+ local:com.sanmedia.twozo:exceptions:jar:1.0-SNAPSHOT (compile)
