@@ -1,0 +1,2 @@
+moduleA/*.txt
+moduleA/dummy
